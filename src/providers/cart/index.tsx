@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-
+import toast, { Toaster } from "react-hot-toast";
 interface Product {
   id: number;
   title: string;
@@ -61,7 +61,12 @@ export const CartProvider = ({ children }: CartProps) => {
     },
   ]);
   const addProduct = (product: Product) => {
-    setCart([...cart, product]);
+    if (!cart.includes(product)) {
+      setCart([...cart, product]);
+      toast.success("Produto adicionado ao carrinho");
+    } else {
+      toast.error("Produto já adicionado ao carrinho");
+    }
   };
 
   const deleteProduct = (productToBeDeleted: Product) => {
@@ -69,6 +74,7 @@ export const CartProvider = ({ children }: CartProps) => {
       (product) => product.title !== productToBeDeleted.title
     );
     setCart(newCart);
+    toast.success("Produto removido do carrinho");
   };
 
   return (

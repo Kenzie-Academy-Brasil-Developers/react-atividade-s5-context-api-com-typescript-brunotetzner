@@ -4,9 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Providers } from "./providers";
+import { Toaster } from "react-hot-toast";
 ReactDOM.render(
   <React.StrictMode>
     <Providers>
+      <Toaster />
       <App />
     </Providers>
   </React.StrictMode>,

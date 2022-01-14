@@ -12,9 +12,11 @@ function App() {
         <div id="products">
           <CardItem />
         </div>
-        <Header text="cart" />
         <div id="cart">
-          <CardCart />
+          <Header text="Carrinho" />
+          <div id="card-Products">
+            <CardCart />
+          </div>
         </div>
       </AllProductsDiv>
     </>
